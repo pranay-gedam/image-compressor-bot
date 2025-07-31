@@ -1,13 +1,15 @@
 import logging
 import io
+import os
 from PIL import Image
 from telegram import Update, File
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from telegram.constants import ParseMode
+from dotenv import load_dotenv
 
 # --- Configuration ---
-# Replace 'YOUR_HTTP_API_TOKEN' with the token you got from BotFather
-TELEGRAM_BOT_TOKEN = "8297750107:AAFFkbqTQOhQntMWLPKHPDjauBaSeWB0FMY"
+load_dotenv()
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 # --- In-Memory Analytics ---
 bot_stats = {
